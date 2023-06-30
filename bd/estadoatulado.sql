@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 29-06-2023 a las 10:21:24
+-- Tiempo de generación: 30-06-2023 a las 06:11:47
 -- Versión del servidor: 5.7.42-cll-lve
 -- Versión de PHP: 7.4.33
 
@@ -355,6 +355,125 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `groups`
+--
+
+CREATE TABLE `groups` (
+  `id` int(11) NOT NULL,
+  `group_name` varchar(1000) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `groups`
+--
+
+INSERT INTO `groups` (`id`, `group_name`, `created`, `modified`) VALUES
+(1, 'Célula 1', '2023-03-23 12:03:57', '2023-04-06 00:39:45'),
+(2, 'Célula 2', '2023-03-23 12:04:18', '2023-03-23 12:04:18'),
+(3, 'Célula 3', '2023-03-23 12:04:40', '2023-03-23 12:04:40'),
+(4, 'Célula 4', '2023-03-23 12:05:01', '2023-03-23 12:05:01'),
+(5, 'Célula 5', '2023-03-23 12:05:20', '2023-03-23 12:05:20'),
+(6, 'Célula 6', '2023-03-23 12:05:43', '2023-03-23 12:05:43');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `groups_users`
+--
+
+CREATE TABLE `groups_users` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `net_id` int(11) DEFAULT NULL,
+  `main_gate` varchar(1) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `groups_users`
+--
+
+INSERT INTO `groups_users` (`id`, `user_id`, `group_id`, `net_id`, `main_gate`, `created`, `modified`) VALUES
+(1, 3, 1, NULL, NULL, '2023-03-23 13:14:49', '2023-03-23 13:14:49'),
+(2, 3, 2, NULL, NULL, '2023-03-23 13:14:49', '2023-03-23 13:14:49'),
+(3, 4, 1, 1, '', '2023-03-31 16:49:48', '2023-03-31 16:49:48'),
+(4, 5, 1, 1, 'A', '2023-04-01 15:13:40', '2023-04-01 15:13:40'),
+(5, 6, 1, 1, 'B', '2023-04-01 15:42:05', '2023-04-01 15:42:05'),
+(6, 7, 1, 1, 'A', '2023-04-01 19:26:48', '2023-04-01 19:26:48'),
+(7, 8, 1, 1, 'B', '2023-04-01 19:29:46', '2023-04-01 19:29:46'),
+(8, 9, 1, 1, 'A', '2023-04-01 19:36:15', '2023-04-01 19:36:15'),
+(9, 10, 1, 1, 'B', '2023-04-01 19:38:57', '2023-04-01 19:38:57'),
+(10, 11, 1, 2, '', '2023-04-06 00:20:18', '2023-04-06 00:20:18'),
+(11, 12, 1, 2, 'A', '2023-04-06 00:24:34', '2023-04-06 00:24:34'),
+(12, 13, 1, 2, 'B', '2023-04-06 00:27:28', '2023-04-06 00:27:28'),
+(13, 14, 1, 2, 'A', '2023-04-06 00:31:00', '2023-04-06 00:31:00'),
+(14, 15, 1, 2, 'B', '2023-04-06 00:34:22', '2023-04-06 00:34:22'),
+(15, 16, 1, 2, 'A', '2023-04-06 00:37:08', '2023-04-06 00:37:08'),
+(16, 17, 1, 2, 'B', '2023-04-06 00:39:45', '2023-04-06 00:39:45');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `nets`
+--
+
+CREATE TABLE `nets` (
+  `id` int(11) NOT NULL,
+  `net_name` varchar(1000) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `group_id` int(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `nets`
+--
+
+INSERT INTO `nets` (`id`, `net_name`, `group_id`, `created`, `modified`) VALUES
+(1, 'UF No. 1', 1, '2023-03-23 12:14:27', '2023-03-23 12:14:27'),
+(2, 'UF No. 2', 1, '2023-03-23 12:15:38', '2023-03-23 12:15:38'),
+(3, 'UF No. 3', 1, '2023-03-23 12:16:05', '2023-03-23 12:16:05'),
+(4, 'UF No. 4', 1, '2023-03-23 12:16:29', '2023-03-23 12:16:29'),
+(5, 'UF No. 5', 1, '2023-03-23 12:16:53', '2023-03-23 12:16:53'),
+(6, 'UF No. 6', 1, '2023-03-23 12:17:26', '2023-03-23 12:17:26'),
+(7, 'UF No. 1', 2, '2023-03-23 12:17:49', '2023-03-23 12:17:49'),
+(8, 'UF No. 2', 2, '2023-03-23 12:18:15', '2023-03-23 12:18:15'),
+(9, 'UF No. 3', 2, '2023-03-23 12:18:57', '2023-03-23 12:18:57'),
+(10, 'UF No. 4', 2, '2023-03-23 12:19:29', '2023-03-23 12:19:29'),
+(11, 'UF No. 5', 2, '2023-03-23 12:19:58', '2023-03-23 12:19:58'),
+(12, 'UF No. 6', 2, '2023-03-23 12:20:23', '2023-03-23 12:20:23'),
+(13, 'UF No. 1', 3, '2023-03-23 12:20:52', '2023-03-23 12:20:52'),
+(14, 'UF No. 2', 3, '2023-03-23 12:21:25', '2023-03-23 12:21:25'),
+(15, 'UF No. 3', 3, '2023-03-23 12:21:56', '2023-03-23 12:21:56'),
+(16, 'UF No. 4', 3, '2023-03-23 12:22:30', '2023-03-23 12:22:30'),
+(17, 'UF No. 5', 3, '2023-03-23 12:23:00', '2023-03-23 12:23:00'),
+(18, 'UF No. 6', 3, '2023-03-23 12:23:34', '2023-03-23 12:23:34'),
+(19, 'UF No. 1', 4, '2023-03-23 12:24:02', '2023-03-23 12:24:02'),
+(20, 'UF No. 2', 4, '2023-03-23 12:24:29', '2023-03-23 12:24:29'),
+(21, 'UF No. 3', 4, '2023-03-23 12:25:02', '2023-03-23 12:25:02'),
+(22, 'UF No. 4', 4, '2023-03-23 12:25:56', '2023-03-23 12:26:47'),
+(23, 'UF No. 5', 4, '2023-03-23 12:27:24', '2023-03-23 12:27:24'),
+(24, 'UF No. 6', 4, '2023-03-23 12:28:06', '2023-03-23 12:28:06'),
+(25, 'UF No. 1', 5, '2023-03-23 12:28:51', '2023-03-23 12:28:51'),
+(26, 'UF No. 2', 5, '2023-03-23 12:29:36', '2023-03-23 12:29:36'),
+(27, 'UF No. 3', 5, '2023-03-23 12:30:11', '2023-03-23 12:30:11'),
+(28, 'UF No. 4', 5, '2023-03-23 12:30:51', '2023-03-23 12:30:51'),
+(29, 'UF No. 5', 5, '2023-03-23 12:31:38', '2023-03-23 12:31:38'),
+(30, 'UF No. 6', 5, '2023-03-23 12:32:22', '2023-03-23 12:32:22'),
+(31, 'UF No. 1', 6, '2023-03-23 12:33:23', '2023-03-23 12:33:23'),
+(32, 'UF No. 2', 6, '2023-03-23 12:33:46', '2023-03-23 12:33:46'),
+(33, 'UF No. 3', 6, '2023-03-23 12:34:34', '2023-03-23 12:34:34'),
+(34, 'UF No. 4', 6, '2023-03-23 12:35:32', '2023-03-23 12:35:32'),
+(35, 'UF No. 5', 6, '2023-03-23 12:36:14', '2023-03-23 12:36:14'),
+(36, 'UF No. 6', 6, '2023-03-23 12:36:48', '2023-03-23 12:36:48');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `profiles`
 --
 
@@ -522,6 +641,24 @@ ALTER TABLE `aros_acos`
   ADD KEY `aco_id` (`aco_id`);
 
 --
+-- Indices de la tabla `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `groups_users`
+--
+ALTER TABLE `groups_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `nets`
+--
+ALTER TABLE `nets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `profiles`
 --
 ALTER TABLE `profiles`
@@ -572,6 +709,24 @@ ALTER TABLE `aros`
 --
 ALTER TABLE `aros_acos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+
+--
+-- AUTO_INCREMENT de la tabla `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `groups_users`
+--
+ALTER TABLE `groups_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `nets`
+--
+ALTER TABLE `nets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `profiles`
