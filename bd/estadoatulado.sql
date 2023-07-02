@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 30-06-2023 a las 06:11:47
+-- Tiempo de generación: 02-07-2023 a las 14:32:03
 -- Versión del servidor: 5.7.42-cll-lve
 -- Versión de PHP: 7.4.33
 
@@ -64,7 +64,7 @@ CREATE TABLE `acos` (
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1, NULL, NULL, NULL, 'controllers', 1, 300),
+(1, NULL, NULL, NULL, 'controllers', 1, 298),
 (2, 1, NULL, NULL, 'Error', 2, 3),
 (3, 1, NULL, NULL, 'Events', 4, 15),
 (4, 3, NULL, NULL, 'index', 5, 6),
@@ -139,81 +139,80 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (73, 70, NULL, NULL, 'add', 143, 144),
 (74, 70, NULL, NULL, 'edit', 145, 146),
 (75, 70, NULL, NULL, 'delete', 147, 148),
-(76, 1, NULL, NULL, 'SourcingEvents', 150, 161),
+(76, 1, NULL, NULL, 'SourcingEvents', 150, 159),
 (77, 76, NULL, NULL, 'index', 151, 152),
 (78, 76, NULL, NULL, 'view', 153, 154),
 (79, 76, NULL, NULL, 'add', 155, 156),
-(80, 76, NULL, NULL, 'edit', 157, 158),
-(81, 76, NULL, NULL, 'delete', 159, 160),
-(82, 1, NULL, NULL, 'StatesxDays', 162, 173),
-(83, 82, NULL, NULL, 'index', 163, 164),
-(84, 82, NULL, NULL, 'view', 165, 166),
-(85, 82, NULL, NULL, 'addUser', 167, 168),
-(86, 82, NULL, NULL, 'addPacient', 169, 170),
-(87, 82, NULL, NULL, 'delete', 171, 172),
-(88, 1, NULL, NULL, 'StatusGroups', 174, 187),
-(89, 88, NULL, NULL, 'index', 175, 176),
-(90, 88, NULL, NULL, 'view', 177, 178),
-(91, 88, NULL, NULL, 'add', 179, 180),
-(92, 88, NULL, NULL, 'edit', 181, 182),
-(93, 88, NULL, NULL, 'delete', 183, 184),
-(94, 88, NULL, NULL, 'graphics', 185, 186),
-(95, 1, NULL, NULL, 'Stocks', 188, 195),
-(96, 95, NULL, NULL, 'index', 189, 190),
-(97, 95, NULL, NULL, 'view', 191, 192),
-(98, 95, NULL, NULL, 'delete', 193, 194),
-(99, 1, NULL, NULL, 'Supplies', 196, 207),
-(100, 99, NULL, NULL, 'index', 197, 198),
-(101, 99, NULL, NULL, 'view', 199, 200),
-(102, 99, NULL, NULL, 'add', 201, 202),
-(103, 99, NULL, NULL, 'edit', 203, 204),
-(104, 99, NULL, NULL, 'delete', 205, 206),
-(105, 1, NULL, NULL, 'Turns', 208, 219),
-(106, 105, NULL, NULL, 'index', 209, 210),
-(107, 105, NULL, NULL, 'view', 211, 212),
-(108, 105, NULL, NULL, 'add', 213, 214),
-(109, 105, NULL, NULL, 'edit', 215, 216),
-(110, 105, NULL, NULL, 'delete', 217, 218),
-(111, 1, NULL, NULL, 'Users', 220, 251),
-(112, 111, NULL, NULL, 'login', 221, 222),
-(113, 111, NULL, NULL, 'logout', 223, 224),
-(114, 111, NULL, NULL, 'index', 225, 226),
-(115, 111, NULL, NULL, 'view', 227, 228),
-(116, 111, NULL, NULL, 'listAgent', 229, 230),
-(117, 111, NULL, NULL, 'listNet', 231, 232),
-(118, 111, NULL, NULL, 'add', 233, 234),
-(119, 111, NULL, NULL, 'edit', 235, 236),
-(120, 111, NULL, NULL, 'delete', 237, 238),
-(121, 111, NULL, NULL, 'forgotpassword', 239, 240),
-(122, 111, NULL, NULL, 'resetpassword', 241, 242),
-(123, 111, NULL, NULL, 'changepassword', 243, 244),
-(124, 111, NULL, NULL, 'getUsersMarkers', 245, 246),
-(125, 111, NULL, NULL, 'getUserMarkers', 247, 248),
-(126, 111, NULL, NULL, 'setgeo', 249, 250),
-(127, 1, NULL, NULL, 'Acl', 252, 253),
-(128, 1, NULL, NULL, 'Bake', 254, 255),
-(129, 1, NULL, NULL, 'Cake\\TwigView', 256, 257),
-(130, 1, NULL, NULL, 'DebugKit', 258, 295),
-(131, 130, NULL, NULL, 'Composer', 259, 262),
-(132, 131, NULL, NULL, 'checkDependencies', 260, 261),
-(133, 130, NULL, NULL, 'Dashboard', 263, 268),
-(134, 133, NULL, NULL, 'index', 264, 265),
-(135, 133, NULL, NULL, 'reset', 266, 267),
-(136, 130, NULL, NULL, 'DebugKit', 269, 270),
-(137, 130, NULL, NULL, 'MailPreview', 271, 278),
-(138, 137, NULL, NULL, 'index', 272, 273),
-(139, 137, NULL, NULL, 'sent', 274, 275),
-(140, 137, NULL, NULL, 'email', 276, 277),
-(141, 130, NULL, NULL, 'Panels', 279, 286),
-(142, 141, NULL, NULL, 'index', 280, 281),
-(143, 141, NULL, NULL, 'view', 282, 283),
-(144, 141, NULL, NULL, 'latestHistory', 284, 285),
-(145, 130, NULL, NULL, 'Requests', 287, 290),
-(146, 145, NULL, NULL, 'view', 288, 289),
-(147, 130, NULL, NULL, 'Toolbar', 291, 294),
-(148, 147, NULL, NULL, 'clearCache', 292, 293),
-(149, 1, NULL, NULL, 'Migrations', 296, 297),
-(150, 1, NULL, NULL, 'Search', 298, 299);
+(80, 76, NULL, NULL, 'delete', 157, 158),
+(81, 1, NULL, NULL, 'StatesxDays', 160, 171),
+(82, 81, NULL, NULL, 'index', 161, 162),
+(83, 81, NULL, NULL, 'view', 163, 164),
+(84, 81, NULL, NULL, 'addUser', 165, 166),
+(85, 81, NULL, NULL, 'addPacient', 167, 168),
+(86, 81, NULL, NULL, 'delete', 169, 170),
+(87, 1, NULL, NULL, 'StatusGroups', 172, 185),
+(88, 87, NULL, NULL, 'index', 173, 174),
+(89, 87, NULL, NULL, 'view', 175, 176),
+(90, 87, NULL, NULL, 'add', 177, 178),
+(91, 87, NULL, NULL, 'edit', 179, 180),
+(92, 87, NULL, NULL, 'delete', 181, 182),
+(93, 87, NULL, NULL, 'graphics', 183, 184),
+(94, 1, NULL, NULL, 'Stocks', 186, 193),
+(95, 94, NULL, NULL, 'index', 187, 188),
+(96, 94, NULL, NULL, 'view', 189, 190),
+(97, 94, NULL, NULL, 'delete', 191, 192),
+(98, 1, NULL, NULL, 'Supplies', 194, 205),
+(99, 98, NULL, NULL, 'index', 195, 196),
+(100, 98, NULL, NULL, 'view', 197, 198),
+(101, 98, NULL, NULL, 'add', 199, 200),
+(102, 98, NULL, NULL, 'edit', 201, 202),
+(103, 98, NULL, NULL, 'delete', 203, 204),
+(104, 1, NULL, NULL, 'Turns', 206, 217),
+(105, 104, NULL, NULL, 'index', 207, 208),
+(106, 104, NULL, NULL, 'view', 209, 210),
+(107, 104, NULL, NULL, 'add', 211, 212),
+(108, 104, NULL, NULL, 'edit', 213, 214),
+(109, 104, NULL, NULL, 'delete', 215, 216),
+(110, 1, NULL, NULL, 'Users', 218, 249),
+(111, 110, NULL, NULL, 'login', 219, 220),
+(112, 110, NULL, NULL, 'logout', 221, 222),
+(113, 110, NULL, NULL, 'index', 223, 224),
+(114, 110, NULL, NULL, 'view', 225, 226),
+(115, 110, NULL, NULL, 'listAgent', 227, 228),
+(116, 110, NULL, NULL, 'listNet', 229, 230),
+(117, 110, NULL, NULL, 'add', 231, 232),
+(118, 110, NULL, NULL, 'edit', 233, 234),
+(119, 110, NULL, NULL, 'delete', 235, 236),
+(120, 110, NULL, NULL, 'forgotpassword', 237, 238),
+(121, 110, NULL, NULL, 'resetpassword', 239, 240),
+(122, 110, NULL, NULL, 'changepassword', 241, 242),
+(123, 110, NULL, NULL, 'getUsersMarkers', 243, 244),
+(124, 110, NULL, NULL, 'getUserMarkers', 245, 246),
+(125, 110, NULL, NULL, 'setgeo', 247, 248),
+(126, 1, NULL, NULL, 'Acl', 250, 251),
+(127, 1, NULL, NULL, 'Bake', 252, 253),
+(128, 1, NULL, NULL, 'Cake\\TwigView', 254, 255),
+(129, 1, NULL, NULL, 'DebugKit', 256, 293),
+(130, 129, NULL, NULL, 'Composer', 257, 260),
+(131, 130, NULL, NULL, 'checkDependencies', 258, 259),
+(132, 129, NULL, NULL, 'Dashboard', 261, 266),
+(133, 132, NULL, NULL, 'index', 262, 263),
+(134, 132, NULL, NULL, 'reset', 264, 265),
+(135, 129, NULL, NULL, 'DebugKit', 267, 268),
+(136, 129, NULL, NULL, 'MailPreview', 269, 276),
+(137, 136, NULL, NULL, 'index', 270, 271),
+(138, 136, NULL, NULL, 'sent', 272, 273),
+(139, 136, NULL, NULL, 'email', 274, 275),
+(140, 129, NULL, NULL, 'Panels', 277, 284),
+(141, 140, NULL, NULL, 'index', 278, 279),
+(142, 140, NULL, NULL, 'view', 280, 281),
+(143, 140, NULL, NULL, 'latestHistory', 282, 283),
+(144, 129, NULL, NULL, 'Requests', 285, 288),
+(145, 144, NULL, NULL, 'view', 286, 287),
+(146, 129, NULL, NULL, 'Toolbar', 289, 292),
+(147, 146, NULL, NULL, 'clearCache', 290, 291),
+(148, 1, NULL, NULL, 'Migrations', 294, 295),
+(149, 1, NULL, NULL, 'Search', 296, 297);
 
 -- --------------------------------------------------------
 
@@ -266,91 +265,91 @@ CREATE TABLE `aros_acos` (
 
 INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES
 (1, 1, 1, '1', '1', '1', '1'),
-(84, 2, 3, '1', '1', '1', '1'),
-(85, 2, 9, '1', '1', '1', '1'),
-(86, 2, 15, '1', '1', '1', '1'),
-(87, 2, 17, '1', '1', '1', '1'),
-(88, 2, 31, '1', '1', '1', '1'),
-(89, 2, 37, '1', '1', '1', '1'),
-(90, 2, 43, '1', '1', '1', '1'),
-(91, 2, 49, '1', '1', '1', '1'),
-(92, 2, 70, '1', '1', '1', '1'),
-(93, 2, 76, '1', '1', '1', '1'),
-(94, 2, 82, '1', '1', '1', '1'),
-(95, 2, 88, '1', '1', '1', '1'),
-(96, 2, 95, '1', '1', '1', '1'),
-(97, 2, 99, '1', '1', '1', '1'),
-(98, 2, 105, '1', '1', '1', '1'),
-(99, 2, 111, '1', '1', '1', '1'),
-(100, 3, 3, '1', '1', '1', '1'),
-(101, 3, 9, '1', '1', '1', '1'),
-(102, 3, 15, '1', '1', '1', '1'),
-(103, 3, 17, '1', '1', '1', '1'),
-(104, 3, 31, '1', '1', '1', '1'),
-(105, 3, 37, '1', '1', '1', '1'),
-(106, 3, 43, '1', '1', '1', '1'),
-(107, 3, 49, '1', '1', '1', '1'),
-(108, 3, 70, '1', '1', '1', '1'),
-(109, 3, 76, '1', '1', '1', '1'),
-(110, 3, 82, '1', '1', '1', '1'),
-(111, 3, 88, '1', '1', '1', '1'),
-(112, 3, 95, '1', '1', '1', '1'),
-(113, 3, 99, '1', '1', '1', '1'),
-(114, 3, 105, '1', '1', '1', '1'),
-(115, 3, 111, '1', '1', '1', '1'),
-(116, 4, 3, '1', '1', '1', '1'),
-(117, 4, 15, '1', '1', '1', '1'),
-(118, 4, 17, '1', '1', '1', '1'),
-(119, 4, 31, '1', '1', '1', '1'),
-(120, 4, 37, '1', '1', '1', '1'),
-(121, 4, 43, '1', '1', '1', '1'),
-(122, 4, 49, '1', '1', '1', '1'),
-(123, 4, 70, '1', '1', '1', '1'),
-(124, 4, 76, '1', '1', '1', '1'),
-(125, 4, 82, '1', '1', '1', '1'),
-(126, 4, 95, '1', '1', '1', '1'),
-(127, 4, 99, '1', '1', '1', '1'),
-(128, 4, 105, '1', '1', '1', '1'),
-(129, 4, 111, '1', '1', '1', '1'),
-(130, 5, 3, '1', '1', '1', '1'),
-(131, 5, 15, '1', '1', '1', '1'),
-(132, 5, 17, '1', '1', '1', '1'),
-(133, 5, 37, '1', '1', '1', '1'),
-(134, 5, 43, '1', '1', '1', '1'),
-(135, 5, 49, '1', '1', '1', '1'),
-(136, 5, 70, '1', '1', '1', '1'),
-(137, 5, 76, '1', '1', '1', '1'),
-(138, 5, 82, '1', '1', '1', '1'),
-(139, 5, 95, '1', '1', '1', '1'),
-(140, 5, 99, '1', '1', '1', '1'),
-(141, 5, 105, '1', '1', '1', '1'),
-(142, 5, 111, '1', '1', '1', '1'),
-(143, 6, 3, '1', '1', '1', '1'),
-(144, 6, 15, '1', '1', '1', '1'),
-(145, 6, 17, '1', '1', '1', '1'),
-(146, 6, 37, '1', '1', '1', '1'),
-(147, 6, 43, '1', '1', '1', '1'),
-(148, 6, 49, '1', '1', '1', '1'),
-(149, 6, 70, '1', '1', '1', '1'),
-(150, 6, 76, '1', '1', '1', '1'),
-(151, 6, 82, '1', '1', '1', '1'),
-(152, 6, 95, '1', '1', '1', '1'),
-(153, 6, 99, '1', '1', '1', '1'),
-(154, 6, 105, '1', '1', '1', '1'),
-(155, 6, 111, '1', '1', '1', '1'),
-(156, 7, 3, '1', '1', '1', '1'),
-(157, 7, 15, '1', '1', '1', '1'),
-(158, 7, 17, '1', '1', '1', '1'),
-(159, 7, 37, '1', '1', '1', '1'),
-(160, 7, 43, '1', '1', '1', '1'),
-(161, 7, 49, '1', '1', '1', '1'),
-(162, 7, 70, '1', '1', '1', '1'),
-(163, 7, 76, '1', '1', '1', '1'),
-(164, 7, 82, '1', '1', '1', '1'),
-(165, 7, 95, '1', '1', '1', '1'),
-(166, 7, 99, '1', '1', '1', '1'),
-(167, 7, 105, '1', '1', '1', '1'),
-(168, 7, 111, '1', '1', '1', '1');
+(169, 2, 3, '1', '1', '1', '1'),
+(170, 2, 9, '1', '1', '1', '1'),
+(171, 2, 15, '1', '1', '1', '1'),
+(172, 2, 17, '1', '1', '1', '1'),
+(173, 2, 31, '1', '1', '1', '1'),
+(174, 2, 37, '1', '1', '1', '1'),
+(175, 2, 43, '1', '1', '1', '1'),
+(176, 2, 49, '1', '1', '1', '1'),
+(177, 2, 70, '1', '1', '1', '1'),
+(178, 2, 76, '1', '1', '1', '1'),
+(179, 2, 81, '1', '1', '1', '1'),
+(180, 2, 87, '1', '1', '1', '1'),
+(181, 2, 94, '1', '1', '1', '1'),
+(182, 2, 98, '1', '1', '1', '1'),
+(183, 2, 104, '1', '1', '1', '1'),
+(184, 2, 110, '1', '1', '1', '1'),
+(185, 3, 3, '1', '1', '1', '1'),
+(186, 3, 9, '1', '1', '1', '1'),
+(187, 3, 15, '1', '1', '1', '1'),
+(188, 3, 17, '1', '1', '1', '1'),
+(189, 3, 31, '1', '1', '1', '1'),
+(190, 3, 37, '1', '1', '1', '1'),
+(191, 3, 43, '1', '1', '1', '1'),
+(192, 3, 49, '1', '1', '1', '1'),
+(193, 3, 70, '1', '1', '1', '1'),
+(194, 3, 76, '1', '1', '1', '1'),
+(195, 3, 81, '1', '1', '1', '1'),
+(196, 3, 87, '1', '1', '1', '1'),
+(197, 3, 94, '1', '1', '1', '1'),
+(198, 3, 98, '1', '1', '1', '1'),
+(199, 3, 104, '1', '1', '1', '1'),
+(200, 3, 110, '1', '1', '1', '1'),
+(201, 4, 3, '1', '1', '1', '1'),
+(202, 4, 15, '1', '1', '1', '1'),
+(203, 4, 17, '1', '1', '1', '1'),
+(204, 4, 31, '1', '1', '1', '1'),
+(205, 4, 37, '1', '1', '1', '1'),
+(206, 4, 43, '1', '1', '1', '1'),
+(207, 4, 49, '1', '1', '1', '1'),
+(208, 4, 70, '1', '1', '1', '1'),
+(209, 4, 76, '1', '1', '1', '1'),
+(210, 4, 81, '1', '1', '1', '1'),
+(211, 4, 87, '1', '1', '1', '1'),
+(212, 4, 94, '1', '1', '1', '1'),
+(213, 4, 98, '1', '1', '1', '1'),
+(214, 4, 104, '1', '1', '1', '1'),
+(215, 4, 110, '1', '1', '1', '1'),
+(216, 5, 3, '1', '1', '1', '1'),
+(217, 5, 15, '1', '1', '1', '1'),
+(218, 5, 17, '1', '1', '1', '1'),
+(219, 5, 37, '1', '1', '1', '1'),
+(220, 5, 43, '1', '1', '1', '1'),
+(221, 5, 49, '1', '1', '1', '1'),
+(222, 5, 70, '1', '1', '1', '1'),
+(223, 5, 76, '1', '1', '1', '1'),
+(224, 5, 81, '1', '1', '1', '1'),
+(225, 5, 94, '1', '1', '1', '1'),
+(226, 5, 98, '1', '1', '1', '1'),
+(227, 5, 104, '1', '1', '1', '1'),
+(228, 5, 110, '1', '1', '1', '1'),
+(229, 6, 3, '1', '1', '1', '1'),
+(230, 6, 15, '1', '1', '1', '1'),
+(231, 6, 17, '1', '1', '1', '1'),
+(232, 6, 37, '1', '1', '1', '1'),
+(233, 6, 43, '1', '1', '1', '1'),
+(234, 6, 49, '1', '1', '1', '1'),
+(235, 6, 70, '1', '1', '1', '1'),
+(236, 6, 76, '1', '1', '1', '1'),
+(237, 6, 81, '1', '1', '1', '1'),
+(238, 6, 94, '1', '1', '1', '1'),
+(239, 6, 98, '1', '1', '1', '1'),
+(240, 6, 104, '1', '1', '1', '1'),
+(241, 6, 110, '1', '1', '1', '1'),
+(242, 7, 3, '1', '1', '1', '1'),
+(243, 7, 15, '1', '1', '1', '1'),
+(244, 7, 17, '1', '1', '1', '1'),
+(245, 7, 37, '1', '1', '1', '1'),
+(246, 7, 43, '1', '1', '1', '1'),
+(247, 7, 49, '1', '1', '1', '1'),
+(248, 7, 76, '1', '1', '1', '1'),
+(249, 7, 81, '1', '1', '1', '1'),
+(250, 7, 94, '1', '1', '1', '1'),
+(251, 7, 98, '1', '1', '1', '1'),
+(252, 7, 104, '1', '1', '1', '1'),
+(253, 7, 110, '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -502,54 +501,19 @@ INSERT INTO `profiles` (`id`, `name`, `description`, `referrer_profile_id`, `cre
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `profiles_gates`
+-- Estructura de tabla para la tabla `statesx_days`
 --
 
-CREATE TABLE `profiles_gates` (
+CREATE TABLE `statesx_days` (
   `id` int(11) NOT NULL,
-  `profile_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `net_id` int(11) NOT NULL,
   `main_gate` varchar(1) DEFAULT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `profiles_gates`
---
-
-INSERT INTO `profiles_gates` (`id`, `profile_id`, `main_gate`, `created`, `modified`) VALUES
-(1, 4, NULL, '2020-05-15 23:09:09', '2020-05-15 23:09:09'),
-(2, 5, 'A', '2020-05-15 23:11:08', '2020-05-15 23:11:08'),
-(3, 5, 'B', '2020-05-15 23:11:33', '2020-05-15 23:11:33'),
-(4, 6, 'A', '2020-05-15 23:12:01', '2020-05-15 23:12:01'),
-(5, 6, 'B', '2020-05-15 23:12:40', '2020-05-15 23:12:40'),
-(6, 7, 'A', '2020-05-15 23:13:18', '2020-05-15 23:13:18'),
-(7, 7, 'B', '2020-05-15 23:13:43', '2020-05-15 23:13:43');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sourcing_events`
---
-
-CREATE TABLE `sourcing_events` (
-  `id` int(11) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sourcing_events_profiles`
---
-
-CREATE TABLE `sourcing_events_profiles` (
-  `id` int(11) NOT NULL,
-  `sourcing_event_id` int(11) NOT NULL,
-  `profile_id` int(11) NOT NULL,
-  `main_gate` varchar(1) DEFAULT NULL,
+  `pacient_id` int(11) DEFAULT NULL,
+  `date` date NOT NULL,
+  `hour` time NOT NULL,
+  `status` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -665,21 +629,9 @@ ALTER TABLE `profiles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `profiles_gates`
+-- Indices de la tabla `statesx_days`
 --
-ALTER TABLE `profiles_gates`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `sourcing_events`
---
-ALTER TABLE `sourcing_events`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `sourcing_events_profiles`
---
-ALTER TABLE `sourcing_events_profiles`
+ALTER TABLE `statesx_days`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -696,7 +648,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `acos`
 --
 ALTER TABLE `acos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- AUTO_INCREMENT de la tabla `aros`
@@ -708,7 +660,7 @@ ALTER TABLE `aros`
 -- AUTO_INCREMENT de la tabla `aros_acos`
 --
 ALTER TABLE `aros_acos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT de la tabla `groups`
@@ -735,21 +687,9 @@ ALTER TABLE `profiles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `profiles_gates`
+-- AUTO_INCREMENT de la tabla `statesx_days`
 --
-ALTER TABLE `profiles_gates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `sourcing_events`
---
-ALTER TABLE `sourcing_events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `sourcing_events_profiles`
---
-ALTER TABLE `sourcing_events_profiles`
+ALTER TABLE `statesx_days`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
