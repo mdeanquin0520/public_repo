@@ -21,8 +21,8 @@
 					<th>Telefono</th>
 					<th>Fecha de nacimiento</th>
 					<th>Direccion</th>
-					<th>Grupo</th>
-					<th>Red</th>
+					<th>Célula</th>
+					<th>UF</th>
 					<th>Nodo</th>
 					<th>Inmunización</th>
 					<th>Agente asignado</th>
@@ -65,17 +65,17 @@
 					<td><?= $pacient->user->full_name ?></td>
 					<td><?= $statusEnum[$pacient->status] ?></td>
 					<td>
-						<?= $this->Form->control('statesxDays.'.$i.'.status',['label'=>false, 'options'=>[1 => 'Alerta verde', 2 => 'Alerta amarillo', 3 => 'Alerta naranja', 4 => 'Alerta rojo'], 'class'=>'status']) ?>
-						<?= $this->Form->hidden('statesxDays.'.$i.'.pacient_id',['value'=>$pacient->id]) ?>
-						<?= $this->Form->hidden('statesxDays.'.$i.'.date',['value'=>date('Y-m-d')]) ?>
-						<?= $this->Form->hidden('statesxDays.'.$i.'.hour',['value'=>date('H:i:s')]) ?>
-						<?= $this->Form->hidden('statesxDays.'.$i.'.user_id',['value'=>$viewUser['id']]) ?>
-						<?= $this->Form->hidden('statesxDays.'.$i.'.group_id',['value'=>$pacient->group_id]) ?>
-						<?= $this->Form->hidden('statesxDays.'.$i.'.net_id',['value'=>$pacient->net_id]) ?>
-						<?= $this->Form->hidden('statesxDays.'.$i.'.main_gate',['value'=>$pacient->main_gate]) ?>
+						<?= $this->Form->control($i.'.StatesxDays.status',['label'=>false, 'options'=>[1 =>'Alerta verde','Alerta amarillo','Alerta naranja','Alerta rojo'], 'class'=>'status']) ?>
+						<?= $this->Form->hidden($i.'.StatesxDays.pacient_id',['value'=>$pacient->id]) ?>
+						<?= $this->Form->hidden($i.'.StatesxDays.date',['value'=>date('Y-m-d')]) ?>
+						<?= $this->Form->hidden($i.'.StatesxDays.hour',['value'=>date('H:i:s')]) ?>
+						<?= $this->Form->hidden($i.'.StatesxDays.user_id',['value'=>$viewUser['id']]) ?>
+						<?= $this->Form->hidden($i.'.StatesxDays.group_id',['value'=>$pacient->group_id]) ?>
+						<?= $this->Form->hidden($i.'.StatesxDays.net_id',['value'=>$pacient->net_id]) ?>
+						<?= $this->Form->hidden($i.'.StatesxDays.main_gate',['value'=>$pacient->main_gate]) ?>
 					</td>
 					<td>
-						 <?= $this->Form->checkbox('pacients.'.$i.'.isolated',['value'=>true,'hiddenField' => false, 'class' => 'isolated']) ?>
+						 <?= $this->Form->checkbox($i.'.pacient.isolated',['value'=>true,'hiddenField' => false, 'class' => 'isolated']) ?>
 					</td>
 				</tr>
 				<?php

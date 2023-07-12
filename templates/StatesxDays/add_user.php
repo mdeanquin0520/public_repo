@@ -1,10 +1,10 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var iterable<\App\Model\Entity\statesx_days> $statesx_days
+ * @var iterable<\App\Model\Entity\StatesxDays> $StatesxDays
  */
 ?>
-<div class="statesx_days add_user content">
+<div class="StatesxDays add_user content">
 	<?php
 		echo $this->Form->create($statesxDay);
 		echo $this->Form->control('estado',['label'=>'Estado','options'=>[1 => 'Alerta verde', 2 => 'Alerta amarillo', 3 => 'Alerta naranja', 4 => 'Alerta rojo'], 'id' => 'estadoId']);
@@ -70,12 +70,12 @@
 								$group = $user->groups[0]->group_name;
 								if(!empty($user->groups[0]->_joinData->net_id)){
 									$i = $user->groups[0]->_joinData->net_id - 1;
-									$net = $this->Html->link($user->groups[0]->nets[$i]->net_name, ['controller' => 'Nets', 'action' => 'view', $user->groups[0]->_joinData->net_id]);
+									$net = $user->groups[0]->nets[$i]->net_name;
 								}
 								$main_gate = $user->groups[0]->_joinData->main_gate;
-								echo $this->Form->hidden('statesx_days.'.$j.'.group_id',['value'=>$user->groups[0]->id]);
-								echo $this->Form->hidden('statesx_days.'.$j.'.net_id',['value'=>$user->groups[0]->_joinData->net_id]);
-								echo $this->Form->hidden('statesx_days.'.$j.'.main_gate',['value'=>$main_gate]);
+								echo $this->Form->hidden($j.'.StatesxDays.group_id',['value'=>$user->groups[0]->id]);
+								echo $this->Form->hidden($j.'.StatesxDays.net_id',['value'=>$user->groups[0]->_joinData->net_id]);
+								echo $this->Form->hidden($j.'.StatesxDays.main_gate',['value'=>$main_gate]);
 							endif
 						?>
 					</td>
@@ -84,18 +84,18 @@
 					<td><?= $user->firstname ?></td> 
 					<td><?= $user->lastname ?></td> 
 					<td style="background-color:<?= $color ?>;color:#fff"><?= $user->profile->name ?></td> 
-					<td><?= $group ?></td> 
-					<td><?= $net ?></td> 
+					<td><?= h($group) ?></td> 
+					<td><?= h($net) ?></td> 
 					<td><?= (!empty($main_gate)) ? '#'.$main_gate : ' - ' ?></td> 
 					<td>
-						<?= $this->Form->control('statesx_days.'.$j.'.status',['label'=>false, 'options'=>[1 => 'Alerta verde', 2 => 'Alerta amarillo', 3 => 'Alerta naranja', 4 => 'Alerta rojo'], 'class'=>'status']) ?>
-						<?= $this->Form->hidden('statesx_days.'.$j.'.date',['value'=>date('Y-m-d')]) ?>
-						<?= $this->Form->hidden('statesx_days.'.$j.'.hour',['value'=>date('H:i:s')]) ?>
-						<?= $this->Form->hidden('statesx_days.'.$j.'.user_id',['value'=>$user->id]) ?>
+						<?= $this->Form->control($j.'.StatesxDays.status',['label'=>false, 'options'=>[1 => 'Alerta verde', 2 => 'Alerta amarillo', 3 => 'Alerta naranja', 4 => 'Alerta rojo'], 'class'=>'status']) ?>
+						<?= $this->Form->hidden($j.'.StatesxDays.date',['value'=>date('Y-m-d')]) ?>
+						<?= $this->Form->hidden($j.'.StatesxDays.hour',['value'=>date('H:i:s')]) ?>
+						<?= $this->Form->hidden($j.'.StatesxDays.user_id',['value'=>$user->id]) ?>
 					</td>
 					<td>
-						<?= $this->Form->checkbox($j.'.users.isolated',['value'=>true,'hiddenField' => false, 'class' => 'isolated']) ?>
-						<?= $this->Form->hidden($j.'.users.id',['value'=>$user->id]) ?>
+						<?= $this->Form->checkbox($j.'.user.isolated',['value'=>true,'hiddenField' => false, 'class' => 'isolated']) ?>
+						<?= $this->Form->hidden($j.'.user.id',['value'=>$user->id]) ?>
 					</td>
 				</tr>
 				<?php

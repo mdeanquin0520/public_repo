@@ -50,30 +50,11 @@ class StatesxDaysController extends AppController
 		$statesxDay = $this->StatesxDays->newEmptyEntity();
         if ($this->request->is('post')) {
 			$guardar = false;
-			$user = $this->StatesxDays->Users->newEntities($this->request->getData(), [
-				'associated' => [
-					'StatesxDays' => [
-						'associated' => [
-							'Users' => [
-								'onlyIds' => true
-							]
-						]
-					]
-				]
-			]);
-			debug($user);
-			foreach($user->statesx_days as $data){
-				/*$isolated = (!empty($this->request->data['Users']['isolated'][$key])) ? $this->request->data['Users']['isolated'][$key] : 0;
-				$data = array('StatesxDays' => array('status'=>$value,'isolated'=>$isolated,'date'=>$this->request->data['Users']['date'][$key],
-					'hora'=>$this->request->data['Users']['hora'][$key],'user_id'=>$this->request->data['Users']['user_id'][$key],'doctor_id'=>$this->request->data['Users']['doctor_id'][$key],
-					'group_id'=>$this->request->data['Users']['group_id'][$key],'net_id'=>$this->request->data['Users']['net_id'][$key],
-					'main_gate'=>$this->request->data['Users']['main_gate'][$key]));
-				$this->StatesxDays->create();*/
+			$statesxDays = $this->StatesxDays->newEntities($this->request->getData(), ['associated' => ['Users' => ['onlyIds' => true]]]);
+			debug($statesxDays);
+			foreach($statesxDays as $key => $data){
+				$data->user->status = $this->request->getData($key.".StatesxDays.status");
 				$guardar = $this->StatesxDays->save($data);
-				/*if($guardar){
-					$user = $this->StatesxDays->Users->get($data->user_id);
-					$this->StatesxDays->Users->updateAll(array('status'=>$value,'isolated'=>$isolated),array('Users.id'=>$this->request->getData['Users']['doctor_id'][$key]));
-				}*/
 			}
 			/*if(!empty($this->request->getData('sourcing_event_id'))){
 				$sourcingEventsProfiles = $this->SourcingEvents->SourcingEventsProfiles->find('all')->where(['sourcing_event_id'=>$this->request->getData('sourcing_event_id')]);
@@ -92,14 +73,14 @@ class StatesxDaysController extends AppController
 				$users = $this->StatesxDays->Users->find('all')->leftJoinWith('Groups')->where($conditions);
 				$active = ($this->request->getData('estado')==1) ? true : false;
 				foreach($users as $user){
-					$this->Users->updateAll(array('active'=>$active),array('Users.id'=>$user['Users']['id']));
+					$this->Users->updateAll(['active'=>$active],['Users.id'=>$user->id]);
 				}
 			}*/
 			if($guardar){
 				$this->Flash->success(__('Se modificaron los estados de los usuarios.'));
 				return $this->redirect(['action' => 'index']);
 			}
-            $this->Flash->error(__('No se pudieron modificar los estados de los usuarios'));
+			$this->Flash->error(__('No se pudieron modificar los estados de los usuarios'));
 		}
 		$users = $this->StatesxDays->Users->find('all')->leftJoinWith('Groups')->where(['GroupsUsers.net_id' => $this->controllerUser['net_id']])
 			->contain(['Groups' => ['Nets'], 'Profiles']);
@@ -109,34 +90,26 @@ class StatesxDaysController extends AppController
 
 	public function addPacient()
 	{
-        $statesxDay = $this->StatesxDays->newEmptyEntity();
+        $this->loadModel('Turns');
+		$statesxDay = $this->StatesxDays->newEmptyEntity();
         if ($this->request->is('post')) {
 			$guardar = false;
-			$statesxDay = $this->StatesxDays->newEntities($this->request->getData('statesxDays'));
-			foreach($statesxDay as $data){
-				/* $isolated = (!empty($this->request->data['Pacient']['isolated'][$key])) ? $this->request->data['Pacient']['isolated'][$key] : 0;
-				$data = array('StatesxDays'=>array('status' => $value,'isolated'=>$isolated,'date' => $this->request->data['Pacient']['date'][$key],
-					'hora' => $this->request->data['Pacient']['hora'][$key],'user_id' => $this->request->data['Pacient']['user_id'][$key],
-					'pacient_id' => $this->request->data['Pacient']['pacient_id'][$key],'group_id' => $this->request->data['Pacient']['group_id'][$key],
-					'net_id' =>$this->request->data['Pacient']['net_id'][$key],'main_gate' => $this->request->data['Pacient']['main_gate'][$key]));
-				$this->StatesxDays->create(); */
+			$statesxDays = $this->StatesxDays->newEntities($this->request->getData(), ['associated' => ['Pacients' => ['onlyIds' => true]]]);
+			debug($statesxDays);
+			foreach($statesxDays as $key => $data){
+				$data->pacient->status = $this->request->getData($key.".StatesxDays.status");
 				$guardar = $this->StatesxDays->save($data);
-				/* $turnos = $this->Turns->find('first',array('conditions'=>array('Turns.group_id' => $this->request->data['Pacient']['group_id'][$key],
-					'Turns.net_id' => $this->request->data['Pacient']['net_id'][$key],'Turns.main_gate' => $this->request->data['Pacient']['main_gate'][$key],
-					'Turns.pacient_id' => $this->request->data['Pacient']['pacient_id'][$key],'Turns.fecha_volver >'=>date('Y-m-d'))));
-				if(!empty($turnos) && !empty($this->request->data['Pacient']['isolated'][$key])){
+				/* $turnos = $this->Turns->find('all')->where(['Turns.group_id' => $this->request->getData($key.'.StatesxDays.group_id'),
+					'Turns.net_id' => $this->request->getData($key.'.StatesxDays.net_id'),'Turns.main_gate' => $this->request->getData($key.'.StatesxDays.main_gate'),
+					'Turns.pacient_id' => $this->request->getData($key.'.StatesxDays.pacient_id'),'Turns.return_date >'=>date('Y-m-d')])->first();
+				if(!empty($turnos) && !empty($this->request->getData($key.'.pacient.isolated'))){
 					$fecha_actual = date("Y-m-d");
-					$fecha_volver = date("Y-m-d",strtotime($fecha_actual."+ 2 days"));
-					$hora_volver = date("H:i:s");
-					$this->Turns->updateAll(array('fecha_volver'=>$fecha_volver,'hora_volver'=>$hora_volver),array('Turns.id'=>$turnos['Turns']['id']));
+					$return_date = date("Y-m-d",strtotime($fecha_actual."+ 2 days"));
+					$return_time = date("H:i:s");
+					$this->Turns->updateAll(['return_date'=>$return_date,'return_time'=>$return_time],['Turns.id'=>$turnos->id]);
 				} */
 			}
 			if($guardar){
-				/*foreach($this->request->data['Pacient']['statusAlert'] as $key => $status){
-					$isolated = (!empty($this->request->data['Users']['isolated'][$key])) ? $this->request->data['Users']['isolated'][$key] : 0;
-					$this->Pacient->updateAll(array('statusAlert' => $status,'isolated'=>$isolated),
-						array('Pacient.id' => $this->request->data['Pacient']['pacient_id'][$key]));
-				}*/
 				$this->Flash->success(__('Se cambió el estado de los pacientes.'));
 				return $this->redirect(['action' => 'index']);
 			}
